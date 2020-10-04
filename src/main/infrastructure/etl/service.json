@@ -1,0 +1,42 @@
+{
+	"id": "infrastructure-analytics-etl",
+	"instances": 1,
+	"cpus": 0.5,
+	"disk": 20,
+	"mem": 256,
+	"networks": [
+		{
+			"mode": "container/bridge"
+		}
+	],
+	"args": [],
+	"container": {
+		"portMappings": [
+			{
+				"containerPort": 9200,
+				"labels": {
+					"VIP_0": "/infrastructure-analytics-etl:9200"
+				}
+			},
+			{
+				"containerPort": 9600,
+				"labels": {
+					"VIP_0": "/infrastructure-analytics-etl:9600"
+				}
+			}
+		],
+		"type": "DOCKER",
+		"volumes": [],
+		"docker": {
+			"image": "coldis/infrastructure-analytics-etl",
+			"forcePullImage": true
+		}
+	},
+	"env": {
+		"ES_URL": "",
+		"ES_USER": "",
+		"ES_PASSWORD": ""
+	},
+	"healthChecks": []
+}
+

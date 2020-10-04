@@ -1,0 +1,22 @@
+
+http:
+  host: 0.0.0.0
+
+path:
+  config: "/usr/share/logstash/pipeline"
+  logs: "/var/log/logstash"
+  
+log:
+  level: "error"
+
+pipeline:
+  workers: ${LOGSTASH_WORKERS:3}
+  batch:
+    size: ${LOGSTASH_BATCH_SIZE:200}
+    delay: ${LOGSTASH_BATCH_DELAY:300}
+    
+queue:
+  type: "${LOGSTASH_QUEUE_TYPE:persisted}"
+  
+config:
+  support_escapes: true

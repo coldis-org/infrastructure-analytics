@@ -1,0 +1,81 @@
+{
+	"id": "infrastructure-analytics-visualizer",
+	"instances": 1,
+	"cpus": 0.3,
+	"disk": 10000,
+	"mem": 512,
+	"networks": [
+		{
+			"mode": "container/bridge"
+		}
+	],
+	"args": [],
+	"container": {
+		"portMappings": [
+			{
+				"containerPort": 3000,
+				"labels": {
+					"VIP_0": "/infrastructure-analytics-visualizer:3000"
+				}
+			}
+		],
+		"type": "DOCKER",
+		"volumes": [
+			{
+				"containerPath": "/var/lib/grafana",
+				"mode": "RW",
+				"external": {
+					"name": "infrastructure-analytics-visualizer-data",
+					"provider": "dvdi",
+					"options": {
+						"dvdi/driver": "rexray"
+					}
+				}
+			}
+		],
+		"docker": {
+			"image": "coldis/infrastructure-analytics-visualizer",
+			"forcePullImage": true,
+			"parameters": [
+				{
+					"key": "memory",
+					"value": "2g"
+				},
+				{
+					"key": "memory-reservation",
+					"value": "512m"
+				},
+				{
+					"key": "memory-swap",
+					"value": "6g"
+				}
+			]
+		}
+	},
+	"fetch": [
+		{
+			"uri": "file:///etc/private-docker.tar.gz"
+		}
+	],
+	"env": {
+		"ENVIRONMENT": "development",
+		"HOST_NAME": "dev.coldis.org",
+		"SERVER_NAME": "infrastructure-analytics-visualizer",
+		"GF_SECURITY_ADMIN_PASSWORD": "admin",
+		"LDAP_USER": "readonly",
+		"LDAP_PASSWORD": "readonly"
+	},
+	"healthChecks": [],
+	"upgradeStrategy": {
+		"minimumHealthCapacity": 0,
+		"maximumOverCapacity": 0
+	},
+	"constraints": [
+		[
+			"zone",
+			"IS",
+			"us-east-1c"
+		]
+	]
+}
+

@@ -1,0 +1,19 @@
+{
+	"cpus": 0.2,
+	"mem": 384,
+	"container": {
+		"volumes": [
+			{
+				"containerPath": "/var/lib/grafana",
+				"mode": "RW",
+				"external": {
+					"name": "development-infrastructure-analytics-visualizer-data",
+					"provider": "dvdi",
+					"options": {
+						"dvdi/driver": "rexray"
+					}
+				}
+			}
+		]
+	}
+}

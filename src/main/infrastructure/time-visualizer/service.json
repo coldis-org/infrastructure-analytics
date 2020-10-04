@@ -1,0 +1,34 @@
+{
+	"id": "infrastructure-analytics-time-visualizer",
+	"instances": 1,
+	"cpus": 0.5,
+	"disk": 10,
+	"mem": 2000,
+	"networks": [
+		{
+			"mode": "container/bridge"
+		}
+	],
+	"args": [],
+	"container": {
+		"portMappings": [
+			{
+				"containerPort": 5601,
+				"labels": {
+					"VIP_0": "/infrastructure-analytics-time-visualizer:5601"
+				}
+			}
+		],
+		"type": "DOCKER",
+		"volumes": [],
+		"docker": {
+			"image": "coldis/infrastructure-analytics-time-visualizer",
+			"forcePullImage": true
+		}
+	},
+	"env": {
+		"SERVER_NAME": "infrastructure-analytics-time-visualizer",
+		"ELASTICSEARCH_HOSTS": "https://infrastructure-analytics-database:9200"
+	},
+	"healthChecks": []
+}

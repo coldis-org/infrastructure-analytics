@@ -1,0 +1,19 @@
+bootstrap:
+    memory_lock: ${MEMORY_LOCK}
+
+cluster:
+    name: ${CLUSTER_NAME}
+
+discovery:
+    seed_hosts: ${MASTER_NODE}
+    type: single-node
+
+network:
+    host: 0.0.0.0
+
+node:
+    name: ${NODE_NAME}
+    data: ${NODE_IS_DATA}
+    ingest: ${NODE_IS_INGEST}
+    master: ${NODE_IS_MASTER}
+

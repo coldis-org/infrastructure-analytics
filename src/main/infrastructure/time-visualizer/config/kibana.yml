@@ -1,0 +1,8 @@
+server:
+    name: ${SERVER_NAME}
+    host: "0"
+
+elasticsearch:
+    hosts: ${ELASTICSEARCH_HOSTS}
+    ssl:
+        verificationMode: none

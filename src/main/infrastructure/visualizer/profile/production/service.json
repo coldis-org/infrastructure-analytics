@@ -1,0 +1,25 @@
+{
+	"container": {
+		"volumes": [
+			{
+				"containerPath": "/var/lib/grafana",
+				"mode": "RW",
+				"external": {
+					"name": "production-infrastructure-analytics-visualizer-data",
+					"provider": "dvdi",
+					"options": {
+						"dvdi/driver": "rexray"
+					}
+				}
+			}
+		]
+	},
+	"env": {
+		"ENVIRONMENT": "production",
+		"HOST_NAME": "coldis.org",
+		"GF_SECURITY_ADMIN_PASSWORD": "admin",
+		"LDAP_USER": "readonly",
+		"LDAP_PASSWORD": "admin"
+	}
+}
+
