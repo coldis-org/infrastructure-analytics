@@ -1,5 +1,5 @@
 # From grafana.
-FROM grafana/grafana:7.2.0
+FROM grafana/grafana:9.0.0
 
 # Set to root user for configuration.
 USER root
