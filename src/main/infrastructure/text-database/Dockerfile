@@ -1,5 +1,5 @@
 # From ES.
-FROM docker.elastic.co/elasticsearch/elasticsearch:7.15.1
+FROM docker.elastic.co/elasticsearch/elasticsearch:8.8.1
 
 # Sets locale and UTF-8 charset.
 ENV TZ=America/Sao_Paulo

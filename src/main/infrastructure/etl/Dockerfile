@@ -1,5 +1,5 @@
 # From Logstash.
-FROM docker.elastic.co/logstash/logstash:7.15.1
+FROM docker.elastic.co/logstash/logstash:8.8.1
 
 # Sets the user to root.
 USER root

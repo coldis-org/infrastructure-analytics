@@ -1,5 +1,5 @@
 # From Kibana.
-FROM docker.elastic.co/kibana/kibana:7.15.1
+FROM docker.elastic.co/kibana/kibana:8.8.1
 
 # sets the user to root.
 USER root
